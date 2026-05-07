@@ -1,539 +1,515 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mac15 Production</title>
 
-  <title>Mac15 Production</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
 
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#f6d913",
-            secondary: "#38a9d8",
-            dark: "#000000",
-            light: "#ffffff"
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f6d913",
+              secondary: "#38a9d8",
+              dark: "#000000",
+              light: "#ffffff",
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
           },
-          fontFamily: {
-            inter: ['Inter', 'sans-serif']
-          }
-        }
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: #000000;
+        color: white;
+        scroll-behavior: smooth;
       }
-    }
-  </script>
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #000000;
-      color: white;
-      scroll-behavior: smooth;
-    }
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
 
-    .glass {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+      .service-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 320px;
+      }
 
-    .service-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 320px;
-    }
+      .service-card img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.18;
+        transition: opacity 0.4s ease;
+      }
 
-    .service-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.18;
-      transition: opacity .4s ease;
-    }
+      .service-card:hover img {
+        opacity: 0.35;
+      }
 
-    .service-card:hover img {
-      opacity: 0.35;
-    }
-
-    .service-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top,
+      .service-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
           rgba(0, 0, 0, 0.95),
-          rgba(0, 0, 0, 0.5));
-    }
+          rgba(0, 0, 0, 0.5)
+        );
+      }
 
-    .material-symbols-outlined {
-      font-variation-settings:
-        'FILL' 0,
-        'wght' 300,
-        'GRAD' 0,
-        'opsz' 24;
-    }
-  </style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+  </head>
 
-</head>
+  <body>
+    <!-- WHATSAPP FLOAT -->
+    <a
+      href="https://wa.me/2290160403597"
+      target="_blank"
+      class="fixed bottom-6 right-6 bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition"
+    >
+      <span class="material-symbols-outlined text-black text-4xl"> chat </span>
+    </a>
 
-<body>
+    <!-- HEADER -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/10"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between"
+      >
+        <div class="text-2xl font-extrabold">Mac15 Production</div>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/2290160403597" target="_blank"
-    class="fixed bottom-6 right-6 bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition">
+        <nav class="hidden md:flex items-center gap-10">
+          <a
+            href="#home"
+            data-i18n="home"
+            class="hover:text-primary transition"
+          >
+            Accueil
+          </a>
 
-    <span class="material-symbols-outlined text-black text-4xl">
-      chat
-    </span>
+          <a
+            href="#services"
+            data-i18n="services"
+            class="hover:text-primary transition"
+          >
+            Services
+          </a>
 
-  </a>
+          <a
+            href="#about"
+            data-i18n="about"
+            class="hover:text-primary transition"
+          >
+            À propos
+          </a>
 
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
+          <a
+            href="#contact"
+            data-i18n="contact"
+            class="hover:text-primary transition"
+          >
+            Contact
+          </a>
+        </nav>
 
-    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <button
+            id="langToggle"
+            onclick="switchLanguage()"
+            class="uppercase text-sm tracking-widest hover:text-primary transition"
+          >
+            EN
+          </button>
 
-      <div class="text-2xl font-extrabold">
-        Mac15 Production
+          <a
+            href="https://wa.me/2290160403597"
+            target="_blank"
+            class="bg-primary text-black px-6 py-3 text-sm font-bold uppercase hover:scale-105 transition"
+            data-i18n="book"
+          >
+            Réserver
+          </a>
+        </div>
       </div>
+    </header>
 
-      <nav class="hidden md:flex items-center gap-10">
+    <!-- HERO -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center relative overflow-hidden"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2000"
+        class="absolute inset-0 w-full h-full object-cover opacity-30"
+      />
 
-        <a href="#home" data-i18n="home" class="hover:text-primary transition">
-          Accueil
-        </a>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"
+      ></div>
 
-        <a href="#services" data-i18n="services" class="hover:text-primary transition">
-          Services
-        </a>
-
-        <a href="#about" data-i18n="about" class="hover:text-primary transition">
-          À propos
-        </a>
-
-        <a href="#contact" data-i18n="contact" class="hover:text-primary transition">
-          Contact
-        </a>
-
-      </nav>
-
-      <div class="flex items-center gap-4">
-
-        <button id="langToggle" onclick="switchLanguage()"
-          class="uppercase text-sm tracking-widest hover:text-primary transition">
-          EN
-        </button>
-
-        <a href="https://wa.me/2290160403597" target="_blank"
-          class="bg-primary text-black px-6 py-3 text-sm font-bold uppercase hover:scale-105 transition"
-          data-i18n="book">
-          Réserver
-        </a>
-
-      </div>
-
-    </div>
-
-  </header>
-
-  <!-- HERO -->
-  <section id="home" class="min-h-screen flex items-center relative overflow-hidden">
-
-    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2000"
-      class="absolute inset-0 w-full h-full object-cover opacity-30" />
-
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
-
-      <span class="border border-secondary text-secondary px-4 py-1 uppercase text-xs tracking-[0.2em]">
-        Agence audiovisuelle & événementielle
-      </span>
-
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mt-8 max-w-4xl">
-
-        Mac15 Production —
-
-        <span class="text-primary" data-i18n="heroTitle">
-          Capturer le vrai, faire rayonner votre message.
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <span
+          class="border border-secondary text-secondary px-4 py-1 uppercase text-xs tracking-[0.2em]"
+        >
+          Agence audiovisuelle & événementielle
         </span>
 
-      </h1>
+        <h1
+          class="text-4xl md:text-6xl font-extrabold leading-tight mt-8 max-w-4xl"
+        >
+          Mac15 Production —
 
-      <p class="mt-6 text-base md:text-lg text-white/70 max-w-2xl leading-relaxed" data-i18n="heroText">
+          <span class="text-primary" data-i18n="heroTitle">
+            Capturer le vrai, faire rayonner votre message.
+          </span>
+        </h1>
 
-        Bienvenue chez Mac15 Production, votre agence de communication audiovisuelle.
-        Nous réalisons des documentaires, clips, retouches photo,
-        impressions grand format et assurons vos événements avec créativité et professionnalisme.
+        <p
+          class="mt-6 text-base md:text-lg text-white/70 max-w-2xl leading-relaxed"
+          data-i18n="heroText"
+        >
+          Bienvenue chez Mac15 Production, votre agence de communication
+          audiovisuelle. Nous réalisons des documentaires, clips, retouches
+          photo, impressions grand format et assurons vos événements avec
+          créativité et professionnalisme.
+        </p>
 
-      </p>
+        <div class="flex flex-wrap gap-6 mt-10">
+          <a
+            href="https://wa.me/2290160403597"
+            target="_blank"
+            class="bg-primary text-black px-8 py-4 text-sm font-bold uppercase hover:scale-105 transition"
+            data-i18n="book"
+          >
+            Réserver
+          </a>
 
-      <div class="flex flex-wrap gap-6 mt-10">
-
-        <a href="https://wa.me/2290160403597" target="_blank"
-          class="bg-primary text-black px-8 py-4 text-sm font-bold uppercase hover:scale-105 transition"
-          data-i18n="book">
-          Réserver
-        </a>
-
-        <a href="#services"
-          class="border border-white px-8 py-4 text-sm font-bold uppercase hover:bg-white hover:text-black transition"
-          data-i18n="discover">
-          Découvrir nos services
-        </a>
-
+          <a
+            href="#services"
+            class="border border-white px-8 py-4 text-sm font-bold uppercase hover:bg-white hover:text-black transition"
+            data-i18n="discover"
+          >
+            Découvrir nos services
+          </a>
+        </div>
       </div>
-
-    </div>
-
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="py-24">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-      <div class="mb-16">
-
-        <span class="text-secondary uppercase tracking-[0.2em] text-xs" data-i18n="expertise">
-          Nos expertises
-        </span>
-
-        <h2 class="text-4xl font-bold mt-4" data-i18n="premium">
-          Services audiovisuels premium
-        </h2>
-
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <!-- SERVICE -->
-        <div class="glass p-10 service-card">
-
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200">
-
-          <div class="service-overlay"></div>
-
-          <div class="relative z-10">
-
-            <span class="material-symbols-outlined text-secondary text-5xl">
-              movie
-            </span>
-
-            <h3 class="text-2xl font-bold mt-8 mb-4">
-              Films documentaires & clips
-            </h3>
-
-            <p class="text-white/70 text-sm md:text-base leading-relaxed">
-              Réalisation cinématographique moderne pour artistes, entreprises et institutions.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- SERVICE -->
-        <div class="glass p-10 service-card">
-
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200">
-
-          <div class="service-overlay"></div>
-
-          <div class="relative z-10">
-
-            <span class="material-symbols-outlined text-primary text-5xl">
-              photo_filter
-            </span>
-
-            <h3 class="text-2xl font-bold mt-8 mb-4">
-              Retouche photo & Photoshop
-            </h3>
-
-            <p class="text-white/70 text-sm md:text-base leading-relaxed">
-              Retouches professionnelles, agrandissements photo et amélioration d’images.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- SERVICE -->
-        <div class="glass p-10 service-card">
-
-          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200">
-
-          <div class="service-overlay"></div>
-
-          <div class="relative z-10">
-
-            <span class="material-symbols-outlined text-secondary text-5xl">
-              celebration
-            </span>
-
-            <h3 class="text-2xl font-bold mt-8 mb-4">
-              Événementiel
-            </h3>
-
-            <p class="text-white/70 text-sm md:text-base leading-relaxed">
-              Mariages, baptêmes, dots, anniversaires et événements privés.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- SERVICE -->
-        <div class="glass p-10 service-card">
-
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200">
-
-          <div class="service-overlay"></div>
-
-          <div class="relative z-10">
-
-            <span class="material-symbols-outlined text-primary text-5xl">
-              print
-            </span>
-
-            <h3 class="text-2xl font-bold mt-8 mb-4">
-              Impression grand format
-            </h3>
-
-            <p class="text-white/70 text-sm md:text-base leading-relaxed">
-              Roll-up, bâches, affiches publicitaires et supports visuels professionnels.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- SERVICE -->
-        <div class="glass p-10 service-card">
-
-          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200">
-
-          <div class="service-overlay"></div>
-
-          <div class="relative z-10">
-
-            <span class="material-symbols-outlined text-secondary text-5xl">
-              school
-            </span>
-
-            <h3 class="text-2xl font-bold mt-8 mb-4">
-              Formation & ateliers
-            </h3>
-
-            <p class="text-white/70 text-sm md:text-base leading-relaxed">
-              Formation audiovisuelle et accompagnement des créateurs.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- SERVICE -->
-        <div class="glass p-10 service-card">
-
-          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200">
-
-          <div class="service-overlay"></div>
-
-          <div class="relative z-10">
-
-            <span class="material-symbols-outlined text-primary text-5xl">
-              videocam
-            </span>
-
-            <h3 class="text-2xl font-bold mt-8 mb-4">
-              Production audiovisuelle
-            </h3>
-
-            <p class="text-white/70 text-sm md:text-base leading-relaxed">
-              Production vidéo professionnelle adaptée à votre image et vos objectifs.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="py-24 bg-white/5 border-y border-white/10">
-
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-
-      <div>
-
-        <h2 class="text-5xl font-extrabold leading-tight">
-
-          ALLUMER.<br>
-          CAPTER.<br>
-
-          <span class="text-secondary">
-            LIVRER.
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-16">
+          <span
+            class="text-secondary uppercase tracking-[0.2em] text-xs"
+            data-i18n="expertise"
+          >
+            Nos expertises
           </span>
 
+          <h2 class="text-4xl font-bold mt-4" data-i18n="premium">
+            Services audiovisuels premium
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- SERVICE -->
+          <div class="glass p-10 service-card">
+            <img
+              src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200"
+            />
+
+            <div class="service-overlay"></div>
+
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-secondary text-5xl">
+                movie
+              </span>
+
+              <h3 class="text-2xl font-bold mt-8 mb-4">
+                Films documentaires & clips
+              </h3>
+
+              <p class="text-white/70 text-sm md:text-base leading-relaxed">
+                Réalisation cinématographique moderne pour artistes, entreprises
+                et institutions.
+              </p>
+            </div>
+          </div>
+
+          <!-- SERVICE -->
+          <div class="glass p-10 service-card">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200"
+            />
+
+            <div class="service-overlay"></div>
+
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-primary text-5xl">
+                photo_filter
+              </span>
+
+              <h3 class="text-2xl font-bold mt-8 mb-4">
+                Retouche photo & Photoshop
+              </h3>
+
+              <p class="text-white/70 text-sm md:text-base leading-relaxed">
+                Retouches professionnelles, agrandissements photo et
+                amélioration d’images.
+              </p>
+            </div>
+          </div>
+
+          <!-- SERVICE -->
+          <div class="glass p-10 service-card">
+            <img
+              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200"
+            />
+
+            <div class="service-overlay"></div>
+
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-secondary text-5xl">
+                celebration
+              </span>
+
+              <h3 class="text-2xl font-bold mt-8 mb-4">Événementiel</h3>
+
+              <p class="text-white/70 text-sm md:text-base leading-relaxed">
+                Mariages, baptêmes, dots, anniversaires et événements privés.
+              </p>
+            </div>
+          </div>
+
+          <!-- SERVICE -->
+          <div class="glass p-10 service-card">
+            <img
+              src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200"
+            />
+
+            <div class="service-overlay"></div>
+
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-primary text-5xl">
+                print
+              </span>
+
+              <h3 class="text-2xl font-bold mt-8 mb-4">
+                Impression grand format
+              </h3>
+
+              <p class="text-white/70 text-sm md:text-base leading-relaxed">
+                Roll-up, bâches, affiches publicitaires et supports visuels
+                professionnels.
+              </p>
+            </div>
+          </div>
+
+          <!-- SERVICE -->
+          <div class="glass p-10 service-card">
+            <img
+              src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200"
+            />
+
+            <div class="service-overlay"></div>
+
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-secondary text-5xl">
+                school
+              </span>
+
+              <h3 class="text-2xl font-bold mt-8 mb-4">Formation & ateliers</h3>
+
+              <p class="text-white/70 text-sm md:text-base leading-relaxed">
+                Formation audiovisuelle et accompagnement des créateurs.
+              </p>
+            </div>
+          </div>
+
+          <!-- SERVICE -->
+          <div class="glass p-10 service-card">
+            <img
+              src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200"
+            />
+
+            <div class="service-overlay"></div>
+
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-primary text-5xl">
+                videocam
+              </span>
+
+              <h3 class="text-2xl font-bold mt-8 mb-4">
+                Production audiovisuelle
+              </h3>
+
+              <p class="text-white/70 text-sm md:text-base leading-relaxed">
+                Production vidéo professionnelle adaptée à votre image et vos
+                objectifs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-white/5 border-y border-white/10">
+      <div
+        class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center"
+      >
+        <div>
+          <h2 class="text-5xl font-extrabold leading-tight">
+            ALLUMER.<br />
+            CAPTER.<br />
+
+            <span class="text-secondary"> LIVRER. </span>
+          </h2>
+        </div>
+
+        <div>
+          <p class="text-lg md:text-xl leading-relaxed text-white/90">
+            Mac15 Production est une agence de communication audiovisuelle
+            spécialisée dans la réalisation de documentaires, clips vidéo,
+            photographie, événementiel et formation.
+          </p>
+
+          <p class="mt-6 text-white/70 leading-relaxed">
+            Nous accompagnons particuliers, artistes, entreprises et
+            institutions dans la création de contenus puissants, modernes et
+            impactants.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold leading-tight" data-i18n="exceptional">
+          Prêt à créer quelque chose d’exceptionnel ?
         </h2>
 
-      </div>
-
-      <div>
-
-        <p class="text-lg md:text-xl leading-relaxed text-white/90">
-
-          Mac15 Production est une agence de communication audiovisuelle spécialisée dans la réalisation de documentaires, clips vidéo, photographie, événementiel et formation.
-
+        <p class="mt-6 text-white/70 max-w-2xl mx-auto leading-relaxed">
+          Contactez-nous directement pour vos réservations, demandes
+          d’informations ou collaborations.
         </p>
 
-        <p class="mt-6 text-white/70 leading-relaxed">
-
-          Nous accompagnons particuliers, artistes, entreprises et institutions
-          dans la création de contenus puissants, modernes et impactants.
-
-        </p>
-
+        <a
+          href="https://wa.me/2290160403597"
+          target="_blank"
+          class="inline-block mt-10 bg-[#25D366] text-black px-10 py-5 font-bold uppercase hover:opacity-90 transition"
+          data-i18n="whatsapp"
+        >
+          Réserver maintenant
+        </a>
       </div>
+    </section>
 
-    </div>
-
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-24">
-
-    <div class="max-w-5xl mx-auto px-6 text-center">
-
-      <h2 class="text-4xl font-bold leading-tight" data-i18n="exceptional">
-        Prêt à créer quelque chose d’exceptionnel ?
-      </h2>
-
-      <p class="mt-6 text-white/70 max-w-2xl mx-auto leading-relaxed">
-
-        Contactez-nous directement pour vos réservations,
-        demandes d’informations ou collaborations.
-
-      </p>
-
-      <a href="https://wa.me/2290160403597" target="_blank"
-        class="inline-block mt-10 bg-[#25D366] text-black px-10 py-5 font-bold uppercase hover:opacity-90 transition"
-        data-i18n="whatsapp">
-
-        Réserver maintenant
-
-      </a>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-white/10 py-16">
-
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-10">
-
-      <div>
-
-        <div class="text-2xl font-extrabold">
-          Mac15 Production
-        </div>
-
-        <p class="mt-4 text-white/60 max-w-md leading-relaxed">
-
-          Agence audiovisuelle & événementielle dédiée à raconter vos histoires avec créativité et impact.
-
-        </p>
-
-      </div>
-
-      <div class="text-white/60 space-y-3">
-
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 py-16">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-10"
+      >
         <div>
-          mac15production@gmail.com
+          <div class="text-2xl font-extrabold">Mac15 Production</div>
+
+          <p class="mt-4 text-white/60 max-w-md leading-relaxed">
+            Agence audiovisuelle & événementielle dédiée à raconter vos
+            histoires avec créativité et impact.
+          </p>
         </div>
 
-        <div>
-          +229 01 60 40 35 97
-        </div>
+        <div class="text-white/60 space-y-3">
+          <div>mac15production@gmail.com</div>
 
+          <div>+229 01 60 40 35 97</div>
+        </div>
       </div>
+    </footer>
 
-    </div>
+    <!-- LANGUAGE SWITCH -->
+    <script>
+      const translations = {
+        fr: {
+          home: "Accueil",
+          services: "Services",
+          about: "À propos",
+          contact: "Contact",
+          book: "Réserver",
+          discover: "Découvrir nos services",
+          heroTitle: "Capturer le vrai, faire rayonner votre message.",
+          heroText:
+            "Bienvenue chez Mac15 Production, votre agence de communication audiovisuelle. Nous réalisons des documentaires, clips, retouches photo, impressions grand format et assurons vos événements avec créativité et professionnalisme.",
+          expertise: "Nos expertises",
+          premium: "Services audiovisuels premium",
+          exceptional: "Prêt à créer quelque chose d’exceptionnel ?",
+          whatsapp: "Réserver maintenant",
+        },
 
-  </footer>
+        en: {
+          home: "Home",
+          services: "Services",
+          about: "About",
+          contact: "Contact",
+          book: "Book",
+          discover: "Explore Services",
+          heroTitle: "Capture reality, amplify your message.",
+          heroText:
+            "Welcome to Mac15 Production, your audiovisual communication agency. We create documentaries, music videos, photo editing, large format printing and event productions.",
+          expertise: "Our expertise",
+          premium: "Premium audiovisual services",
+          exceptional: "Ready to create something exceptional?",
+          whatsapp: "Book now",
+        },
+      };
 
-  <!-- LANGUAGE SWITCH -->
-  <script>
+      let currentLang = "fr";
 
-    const translations = {
+      function switchLanguage() {
+        currentLang = currentLang === "fr" ? "en" : "fr";
 
-      fr: {
-        home: "Accueil",
-        services: "Services",
-        about: "À propos",
-        contact: "Contact",
-        book: "Réserver",
-        discover: "Découvrir nos services",
-        heroTitle: "Capturer le vrai, faire rayonner votre message.",
-        heroText: "Bienvenue chez Mac15 Production, votre agence de communication audiovisuelle. Nous réalisons des documentaires, clips, retouches photo, impressions grand format et assurons vos événements avec créativité et professionnalisme.",
-        expertise: "Nos expertises",
-        premium: "Services audiovisuels premium",
-        exceptional: "Prêt à créer quelque chose d’exceptionnel ?",
-        whatsapp: "Réserver maintenant"
-      },
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
 
-      en: {
-        home: "Home",
-        services: "Services",
-        about: "About",
-        contact: "Contact",
-        book: "Book",
-        discover: "Explore Services",
-        heroTitle: "Capture reality, amplify your message.",
-        heroText: "Welcome to Mac15 Production, your audiovisual communication agency. We create documentaries, music videos, photo editing, large format printing and event productions.",
-        expertise: "Our expertise",
-        premium: "Premium audiovisual services",
-        exceptional: "Ready to create something exceptional?",
-        whatsapp: "Book now"
+          el.textContent = translations[currentLang][key];
+        });
+
+        document.getElementById("langToggle").textContent =
+          currentLang === "fr" ? "EN" : "FR";
       }
-
-    }
-
-    let currentLang = 'fr'
-
-    function switchLanguage() {
-
-      currentLang = currentLang === 'fr' ? 'en' : 'fr'
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-
-        const key = el.getAttribute('data-i18n')
-
-        el.textContent = translations[currentLang][key]
-
-      })
-
-      document.getElementById('langToggle').textContent =
-        currentLang === 'fr' ? 'EN' : 'FR'
-    }
-
-  </script>
-
-</body>
-
+    </script>
+  </body>
 </html>
