@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Mac15 Production | Cinematic Authority</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#e2e2e2",
+            "surface": "#131313",
+            "inverse-surface": "#e2e2e2",
+            "on-secondary-fixed": "#001e2b",
+            "surface-container-high": "#2a2a2a",
+            "on-tertiary": "#00363c",
+            "background": "#131313",
+            "primary-fixed": "#ffe336",
+            "on-surface": "#e2e2e2",
+            "primary-container": "#f6d913",
+            "secondary": "#74d1ff",
+            "secondary-fixed": "#c1e8ff",
+            "primary": "#fff5d3",
+            "on-error-container": "#ffdad6",
+            "tertiary": "#defaff",
+            "inverse-primary": "#6c5e00",
+            "on-secondary-fixed-variant": "#004d67",
+            "on-tertiary-fixed": "#001f23",
+            "surface-tint": "#e2c600",
+            "on-primary": "#383000",
+            "on-tertiary-container": "#006973",
+            "on-error": "#690005",
+            "surface-container": "#1f1f1f",
+            "on-primary-container": "#6c5e00",
+            "on-secondary": "#003548",
+            "tertiary-container": "#55ecff",
+            "tertiary-fixed-dim": "#37d9ec",
+            "on-secondary-container": "#002e3f",
+            "outline": "#979178",
+            "on-primary-fixed-variant": "#514700",
+            "tertiary-fixed": "#92f1ff",
+            "on-tertiary-fixed-variant": "#004f57",
+            "error-container": "#93000a",
+            "primary-fixed-dim": "#e2c600",
+            "secondary-container": "#219bca",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-container-low": "#1b1b1b",
+            "inverse-on-surface": "#303030",
+            "error": "#ffb4ab",
+            "on-primary-fixed": "#211b00",
+            "on-surface-variant": "#cec6ab",
+            "surface-container-highest": "#353535",
+            "surface-variant": "#353535",
+            "surface-bright": "#393939",
+            "outline-variant": "#4b4732",
+            "surface-dim": "#131313",
+            "secondary-fixed-dim": "#74d1ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "stack-lg": "48px",
+            "section-gap": "120px",
+            "margin-page": "64px",
+            "container-max": "1440px",
+            "stack-md": "24px",
+            "unit": "4px",
+            "stack-sm": "8px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "label-caps": ["Inter"],
+            "display-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+            "display-xl": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+            "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      background-color: #000000;
+      color: #e2e2e2;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .glass-card {
+      background: rgba(19, 19, 19, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid #222222;
+      transition: border-color 0.3s ease;
+    }
+
+    .glass-card:hover {
+      border-color: #38a9d8;
+    }
+  </style>
+</head>
+
+<body class="font-body-md text-body-md">
+  <!-- Header Section (TopNavBar Anchor) -->
+  <header
+    class="fixed top-0 w-full z-50 bg-background border-b border-surface-container-highest h-20 flex justify-between items-center max-w-container-max mx-auto px-margin-page">
+    <div class="font-headline-md text-headline-md font-bold text-on-background">Mac15 Production</div>
+    <nav class="hidden md:flex items-center gap-stack-md">
+      <a class="text-primary-fixed border-b-2 border-primary-fixed pb-1 font-body-md text-body-md" href="#home">Home</a>
+      <a class="text-on-background hover:text-primary-fixed transition-colors font-body-md text-body-md"
+        href="#services">Services</a>
+      <a class="text-on-background hover:text-primary-fixed transition-colors font-body-md text-body-md"
+        href="#about">About</a>
+      <a class="text-on-background hover:text-primary-fixed transition-colors font-body-md text-body-md"
+        href="#contact">Contact</a>
+    </nav>
+    <div class="flex items-center gap-gutter">
+      <button
+        class="text-on-background hover:text-secondary transition-colors font-label-caps text-label-caps uppercase tracking-widest">FR
+        / EN</button>
+      <a class="bg-primary-container text-on-primary px-stack-md py-3 font-bold uppercase tracking-widest text-label-caps hover:bg-primary-fixed transition-all duration-300"
+        href="#contact">Book Now</a>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background" id="home">
+      <div class="absolute inset-0 z-0 opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10"></div>
+        <img alt="Cinematic Hero" class="w-full h-full object-cover"
+          data-alt="A high-end cinematic close-up of a professional film camera lens reflecting vibrant studio lights. The setting is a darkened production studio with deep black shadows and sharp golden highlights. The visual style is minimalist and expensive, using high-contrast lighting to emphasize precision and luxury creative technology."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuARs9c30vBCtVfcwVpnOEX-WR2AaAtxAJtx6mxLhrLzdfGQw144jcMQNMG89fJlVJg-uOyJ0q57CFPsSfpL69lKcJHv7ZOl4E-__t6_0VPjt70_tOfq-SJtYXDeiK94wpLSmWOdmbaPnVm4jHPHKSv1kiVReYph9p0NOerktySVjLm4JdtbG47BLWNyM-xLTtoKfqdyEdC9qCwZao3EHKUjZ6eKTcTlq9fuc4m-EzlAonJEL8m13nxJBnWM7zwshC4tITKT9xNI4Q" />
+      </div>
+      <div class="relative z-20 max-w-container-max mx-auto px-margin-page w-full">
+        <div class="max-w-4xl">
+          <span
+            class="inline-block px-4 py-1 mb-stack-md border border-secondary text-secondary font-label-caps text-label-caps uppercase">Elite
+            Production Studio</span>
+          <h1 class="font-display-xl text-display-xl mb-stack-lg leading-tight text-on-background">
+            Mac15 Production — <span class="text-primary-container">Capturer le vrai</span>, faire rayonner votre
+            message.
+          </h1>
+          <div class="flex flex-wrap gap-stack-md">
+            <a class="bg-primary-container text-on-primary px-10 py-5 font-bold uppercase tracking-tighter text-body-lg hover:scale-105 transition-transform duration-300"
+              href="#contact">
+              Book Now / Réserver maintenant
+            </a>
+            <a class="border border-on-background text-on-background px-10 py-5 font-bold uppercase tracking-tighter text-body-lg hover:bg-on-background hover:text-black transition-all duration-300"
+              href="#services">
+              Explore Works
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section (Bento Grid) -->
+    <section class="py-section-gap bg-background max-w-container-max mx-auto px-margin-page" id="services">
+      <div class="mb-section-gap">
+        <span class="text-secondary font-label-caps text-label-caps uppercase tracking-[0.2em]">Our Expertise</span>
+        <h2 class="font-headline-lg text-headline-lg mt-stack-sm text-on-background">Elevated Visual Services</h2>
+      </div>
+      <div class="bento-grid">
+        <!-- Service 1: Films -->
+        <div class="col-span-12 md:col-span-7 glass-card p-stack-lg relative overflow-hidden group min-h-[400px]">
+          <div class="absolute top-0 right-0 p-stack-md opacity-10 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-[120px] text-secondary">movie</span>
+          </div>
+          <div class="relative z-10 flex flex-col justify-end h-full">
+            <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-background">Films documentaires et clips
+            </h3>
+            <p class="text-on-surface-variant font-body-md mb-stack-md max-w-md">Narrative-driven filmmaking for artists
+              and visionaries. Documentaries &amp; music videos crafted with cinematic precision.</p>
+            <div class="w-12 h-1 bg-primary-container"></div>
+          </div>
+        </div>
+        <!-- Service 2: Photo Editing -->
+        <div class="col-span-12 md:col-span-5 glass-card p-stack-lg relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-stack-md opacity-10">
+            <span class="material-symbols-outlined text-[100px] text-primary-container">photo_filter</span>
+          </div>
+          <div class="relative z-10">
+            <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-background">Photo Editing</h3>
+            <p class="text-on-surface-variant font-body-md mb-stack-md">Advanced Photoshop retouching and enhancement to
+              perfection.</p>
+            <ul class="text-secondary text-label-caps space-y-2">
+              <li>+ HIGH-END RETOUCHING</li>
+              <li>+ COLOR GRADING</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Service 3: Events -->
+        <div class="col-span-12 md:col-span-5 glass-card p-stack-lg relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-stack-md opacity-10">
+            <span class="material-symbols-outlined text-[100px] text-secondary">celebration</span>
+          </div>
+          <div class="relative z-10">
+            <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-background">Événementiel</h3>
+            <p class="text-on-surface-variant font-body-md mb-stack-md">Weddings, galas, and life's defining moments
+              captured forever.</p>
+            <span class="inline-block px-3 py-1 border border-secondary text-secondary text-label-caps">LUXURY
+              EVENTS</span>
+          </div>
+        </div>
+        <!-- Service 4: Workshops -->
+        <div class="col-span-12 md:col-span-7 glass-card p-stack-lg relative overflow-hidden group min-h-[300px]">
+          <img alt="Training Workshop"
+            class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+            data-alt="A professional photography workshop setting with high-end cameras and studio lighting equipment. The atmosphere is academic yet creative, with deep charcoal backgrounds and a focus on hands-on learning. The lighting is focused and dramatic, highlighting the sleek black textures of the production gear in a luxury minimalist style."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3-k3dcLOEk0vi7A0N8cm3r4kc-S_kAN0nDgBAOFH8HFOBQPwf-LPfnAMBFV5KsaJC3_1-xQ00Zj01JZu4RPl9_onT89aWMIXq8Q_hcClAJi9N-cx94HNIn5IJscU-UI20Nil-NwuUxiz6O3VQjLi3FJhcREIbOVJ8AjQGvUAHYhwyCVWVGNJqptfxNo415ul2OJ7Rrkq-fzSQTpIbz_hoh5dRsihX2l7BNfTOVgwQsQmDbtILpYAEFoMaQGsvy8ybWUTG6lF7sw" />
+          <div class="relative z-10 flex flex-col justify-center h-full">
+            <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-background">Formation et ateliers</h3>
+            <p class="text-on-surface-variant font-body-md mb-stack-md max-w-md">Empowering the next generation of
+              creators through specialized training and workshops.</p>
+            <a class="text-primary-container font-bold hover:underline flex items-center gap-2" href="#">Learn More
+              <span class="material-symbols-outlined">arrow_forward</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section (Manifesto) -->
+    <section class="py-section-gap bg-surface-container-lowest border-y border-surface-container-highest" id="about">
+      <div class="max-w-container-max mx-auto px-margin-page grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+        <div>
+          <h2 class="font-display-xl text-display-xl leading-[0.9] text-on-background mb-stack-md">
+            ALLUMER,<br />CAPTER,<br /><span class="text-secondary">LIVRER.</span>
+          </h2>
+        </div>
+        <div class="space-y-stack-md">
+          <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            Mac15 Production isn't just a studio; it's a creative catalyst. We believe in the power of visual
+            storytelling to transform perceptions and elevate brands.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Our manifesto is simple: Ignite the idea, capture the essence with uncompromising quality, and deliver
+            results that resonate. We prioritize the "High-End" aesthetic—clean lines, bold impact, and expensive
+            clarity.
+          </p>
+          <div class="grid grid-cols-2 gap-stack-md pt-stack-md">
+            <div>
+              <div class="text-headline-md font-bold text-primary-container">100%</div>
+              <div class="text-label-caps text-on-surface-variant uppercase">Creative Focus</div>
+            </div>
+            <div>
+              <div class="text-headline-md font-bold text-secondary">24/7</div>
+              <div class="text-label-caps text-on-surface-variant uppercase">Production Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-section-gap bg-background">
+      <div class="max-w-container-max mx-auto px-margin-page text-center">
+        <div class="max-w-3xl mx-auto">
+          <span class="material-symbols-outlined text-secondary text-[64px] mb-stack-md">format_quote</span>
+          <blockquote class="font-headline-lg text-headline-lg italic text-on-background leading-relaxed mb-stack-lg">
+            "Travailler avec Mac15 Production a été un vrai tournant pour notre communication."
+          </blockquote>
+          <cite class="not-italic font-label-caps text-label-caps tracking-widest text-secondary block">— Partenaire
+            Stratégique</cite>
+        </div>
+      </div>
+    </section>
+    <!-- Contact & Booking -->
+    <section class="py-section-gap bg-surface-container-low" id="contact">
+      <div class="max-w-container-max mx-auto px-margin-page">
+        <div class="flex flex-col md:flex-row justify-between gap-stack-lg">
+          <div class="flex-1">
+            <h2 class="font-headline-lg text-headline-lg text-on-background mb-stack-md">Prêt à créer l'exceptionnel?
+            </h2>
+            <p class="text-on-surface-variant font-body-lg mb-stack-lg">Direct booking and inquiries. Reach out to start
+              your high-impact production journey.</p>
+            <div class="space-y-stack-md">
+              <div class="flex items-center gap-4 group">
+                <div
+                  class="w-12 h-12 bg-surface-container-high flex items-center justify-center border border-surface-container-highest group-hover:border-secondary transition-colors">
+                  <span class="material-symbols-outlined text-secondary">mail</span>
+                </div>
+                <span class="text-body-lg font-bold text-on-background">mac15production@gmail.com</span>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  class="w-12 h-12 bg-surface-container-high flex items-center justify-center border border-surface-container-highest group-hover:border-primary-container transition-colors">
+                  <span class="material-symbols-outlined text-primary-container">call</span>
+                </div>
+                <span class="text-body-lg font-bold text-on-background">+229 01 60 40 35 97</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 bg-black p-stack-lg border border-surface-container-highest">
+            <h3 class="font-headline-md text-headline-md text-on-background mb-stack-lg">Quick Booking</h3>
+            <form class="space-y-stack-md" onsubmit="return false">
+              <div>
+                <label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">FULL NAME</label>
+                <input
+                  class="w-full bg-black border border-white p-4 focus:border-secondary outline-none transition-colors text-white"
+                  type="text" />
+              </div>
+              <div>
+                <label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">SERVICE
+                  CATEGORY</label>
+                <select
+                  class="w-full bg-black border border-white p-4 focus:border-secondary outline-none transition-colors text-white">
+                  <option>Documentary / Film</option>
+                  <option>Photography</option>
+                  <option>Events</option>
+                  <option>Training</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-4 pt-stack-sm">
+                <button
+                  class="bg-primary-container text-on-primary py-5 font-bold uppercase tracking-widest hover:bg-primary-fixed transition-colors">
+                  Réserver maintenant / Book Now
+                </button>
+                <a class="bg-[#25D366] text-black py-5 font-bold uppercase tracking-widest text-center hover:opacity-90 transition-opacity"
+                  href="https://wa.me/2290160403597" target="_blank">
+                  WhatsApp Contact
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer
+    class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-section-gap border-t border-surface-container-highest">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg max-w-container-max mx-auto px-margin-page">
+      <div>
+        <div class="font-headline-md text-headline-md font-bold text-on-background mb-stack-md">Mac15 Production</div>
+        <p class="text-on-surface-variant font-body-md max-w-xs">Catalyseur haut de gamme pour l'excellence
+          cinématographique et l'élévation des normes créatives.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-stack-md">
+        <div class="flex flex-col gap-2">
+          <span class="font-label-caps text-label-caps text-secondary mb-2">NAVIGATE</span>
+          <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#home">Home</a>
+          <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#services">Services</a>
+          <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#about">About</a>
+        </div>
+        <div class="flex flex-col gap-2">
+          <span class="font-label-caps text-label-caps text-secondary mb-2">LEGAL</span>
+          <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy</a>
+          <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms</a>
+        </div>
+      </div>
+      <div class="flex flex-col items-start md:items-end gap-stack-sm">
+        <div class="text-on-surface-variant">mac15production@gmail.com</div>
+        <div class="text-on-surface-variant">+2290160403597</div>
+        <div
+          class="mt-stack-md pt-stack-md border-t border-surface-container-highest w-full md:w-auto text-on-surface-variant font-body-md">
+          © 2026 Mac15 Production. Tous droits réservés.
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
